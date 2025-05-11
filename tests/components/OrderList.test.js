@@ -2,12 +2,17 @@ import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import OrderList from "../../src/components/OrderList.vue";
 
+const defaultProps = {
+  title: "Pending Orders",
+  className: "pending-orders",
+};
+
 describe("OrderList", () => {
   describe("Basic Rendering", () => {
     it("should render title correctly", () => {
       const wrapper = mount(OrderList, {
         props: {
-          title: "Pending Orders",
+          ...defaultProps,
           orders: [],
         },
       });
@@ -17,7 +22,7 @@ describe("OrderList", () => {
     it("should render empty list", () => {
       const wrapper = mount(OrderList, {
         props: {
-          title: "Pending Orders",
+          ...defaultProps,
           orders: [],
         },
       });
@@ -35,7 +40,7 @@ describe("OrderList", () => {
     it("should display order information correctly", () => {
       const wrapper = mount(OrderList, {
         props: {
-          title: "Pending Orders",
+          ...defaultProps,
           orders,
         },
       });
@@ -56,7 +61,7 @@ describe("OrderList", () => {
     it("should show progress for processing orders", () => {
       const wrapper = mount(OrderList, {
         props: {
-          title: "Pending Orders",
+          ...defaultProps,
           orders,
         },
       });
@@ -73,7 +78,7 @@ describe("OrderList", () => {
     it("should not show progress bar for non-processing orders", () => {
       const wrapper = mount(OrderList, {
         props: {
-          title: "Pending Orders",
+          ...defaultProps,
           orders,
         },
       });
