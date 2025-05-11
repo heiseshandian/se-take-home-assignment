@@ -1,16 +1,16 @@
 <template>
   <div class="order-controller">
     <div class="control-panel">
-      <button @click="createNormalOrder" class="btn normal">New Normal Order</button>
-      <button @click="createVIPOrder" class="btn vip">New VIP Order</button>
-      <div class="bot-controls">
+      <div class="button-group">
+        <button @click="createNormalOrder" class="btn normal">New Normal Order</button>
+        <button @click="createVIPOrder" class="btn vip">New VIP Order</button>
         <button @click="addBot" class="btn add-bot">+ Bot</button>
         <button @click="removeBot" class="btn remove-bot">- Bot</button>
-        <div class="bot-stats">
-          <span class="bot-count">Total Bots: {{ botCount }}</span>
-          <span class="working-bots">Working: {{ workingBots }}</span>
-          <span class="idle-bots">Idle: {{ idleBots }}</span>
-        </div>
+      </div>
+      <div class="bot-stats">
+        <span class="bot-count">Total Bots: {{ botCount }}</span>
+        <span class="working-bots">Working: {{ workingBots }}</span>
+        <span class="idle-bots">Idle: {{ idleBots }}</span>
       </div>
     </div>
   </div>
@@ -57,6 +57,12 @@ const removeBot = () => {
 
 .control-panel {
   display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.button-group {
+  display: flex;
   gap: 20px;
   align-items: center;
 }
@@ -92,12 +98,6 @@ const removeBot = () => {
 .remove-bot {
   background-color: #F44336;
   color: white;
-}
-
-.bot-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
 .bot-stats {
